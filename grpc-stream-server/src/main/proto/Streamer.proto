@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package com.grpc.example.streamer;
+
+service StreamerService {
+  rpc StreamMessages (StreamRequest) returns (stream StreamResponse);
+}
+
+message StreamRequest {
+  int32 numberOfMessages = 1;
+}
+
+message StreamResponse {
+  int32 messageNumber = 1;
+  string message = 2;
+}

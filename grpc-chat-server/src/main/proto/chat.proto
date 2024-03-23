@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package com.grpc.example.chatter;
+
+service ChatterService {
+  rpc StreamMessages (stream Message) returns (stream Message);
+}
+
+message Message {
+  string from= 1;
+  string message = 2;
+}
+
