@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.example.grpc";
+option java_outer_classname = "TestProto";
+
+package test;
+
+// The greeting service definition.
+service TestGrpcService {
+  // Sends a greeting
+  rpc TestMe (Test) returns (Tests);
+}
+
+// The request message containing the user's name.
+message Tests {
+  repeated string tests =1;
+}
+message Test {
+  string test =1;
+}

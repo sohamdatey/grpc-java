@@ -12,7 +12,7 @@ public class MyGrpcClient {
         ManagedChannel channel;
         GreetServiceGrpc.GreetServiceBlockingStub blockingStub;
 
-        channel = ManagedChannelBuilder.forAddress("localhost", 50051)
+        channel = ManagedChannelBuilder.forAddress("localhost", 9090)
                 .usePlaintext()
                 .build();
 

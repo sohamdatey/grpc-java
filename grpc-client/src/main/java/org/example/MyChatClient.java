@@ -16,7 +16,7 @@ public class MyChatClient {
         System.out.print("Enter name: ");
         String username = scanner.nextLine();
 
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50053)
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 8080)
                 .usePlaintext()
                 .build();
 

@@ -3,9 +3,11 @@ package org.example;
 import com.grpc.example.streamer.Streamer;
 import com.grpc.example.streamer.StreamerServiceGrpc;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 
 import java.util.stream.IntStream;
 
+@GrpcService
 public class StreamerService extends StreamerServiceGrpc.StreamerServiceImplBase {
 
 
@@ -13,14 +15,14 @@ public class StreamerService extends StreamerServiceGrpc.StreamerServiceImplBase
     public void streamMessages(Streamer.StreamRequest request, StreamObserver<Streamer.StreamResponse> responseObserver) {
         int numberOfMessages = request.getNumberOfMessages();
         System.out.println("Server hit");
-        IntStream.range(0,numberOfMessages).forEach(i->{
-            responseObserver.onNext(Streamer.StreamResponse.newBuilder().setMessage("Message:"+i).build());
+        IntStream.range(0, numberOfMessages).forEach(i -> {
+            responseObserver.onNext(Streamer.StreamResponse.newBuilder().setMessage("Message:" + i).build());
             sleep(2000);
         });
         responseObserver.onCompleted();
     }
 
-    private static void sleep(long time)  {
+    private static void sleep(long time) {
         try {
             Thread.sleep(time);
         } catch (InterruptedException e) {

@@ -4,7 +4,9 @@ import com.example.grpc.GreetRequest;
 import com.example.grpc.GreetResponse;
 import com.example.grpc.GreetServiceGrpc;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 
+@GrpcService
 public class GreetingService extends GreetServiceGrpc.GreetServiceImplBase {
     @Override
     public void greet(GreetRequest request, StreamObserver<GreetResponse> responseObserver) {
@@ -15,9 +17,6 @@ public class GreetingService extends GreetServiceGrpc.GreetServiceImplBase {
                 .setGreeting(greeting)
                 .build();
 
-        responseObserver.onNext(response);
-        responseObserver.onNext(response);
-        responseObserver.onNext(response);
         responseObserver.onNext(response);
         sleep(5000);
         responseObserver.onCompleted();

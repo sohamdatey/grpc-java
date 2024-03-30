@@ -14,7 +14,7 @@ public class StreamClient {
         ManagedChannel channel;
         StreamerServiceGrpc.StreamerServiceBlockingStub stub;
 
-        channel = ManagedChannelBuilder.forAddress("localhost", 50052)
+        channel = ManagedChannelBuilder.forAddress("localhost", 9091)
                 .usePlaintext()
                 .build();
 
