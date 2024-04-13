@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package com.book;
+
+// The greeting service definition.
+service BookService {
+  //unary rpc
+  rpc GetBook (GetBookRequest) returns (Book);
+
+
+  //server streaming rpc
+  rpc GetBooksByAuthor (GetBookByAuthor) returns (stream Book);
+
+
+  //client streaming rpc
+  rpc GetMostRatedBook(stream GetBookRequest) returns (Book);
+
+
+  //both steaming rpc
+  rpc GetBooks(stream GetBookRequest) returns (stream Book);
+}
+
+
+
+// The request message containing the user's name.
+message GetBookRequest {
+  string isbn = 1;
+}
+
+message GetBookByAuthor {
+  string author = 1;
+}
+
+message Book {
+  string isbn = 1;
+  string title = 2;
+  string author = 3;
+  float rating = 4;
+}
+
+

@@ -14,7 +14,7 @@ public class StreamClient {
         ManagedChannel channel;
         StreamerServiceGrpc.StreamerServiceBlockingStub stub;
 
-        channel = ManagedChannelBuilder.forAddress("localhost", 9091)
+        channel = ManagedChannelBuilder.forAddress("http://ldvpcs-MyLoa-SNKgpQGRwPU5-2114675533.us-east-1.elb.amazonaws.com"    , 9091)
                 .usePlaintext()
                 .build();
 

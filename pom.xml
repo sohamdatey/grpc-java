@@ -20,6 +20,8 @@
 		<module>grpc-stream-server</module>
         <module>grpc-chat-server</module>
         <module>rest-server</module>
+        <module>grpc-book-server</module>
+        <module>grpc-book-client</module>
     </modules>
 	<properties>
 		<java.version>17</java.version>
